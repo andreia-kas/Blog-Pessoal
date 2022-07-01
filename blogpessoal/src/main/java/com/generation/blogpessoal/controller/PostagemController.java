@@ -46,7 +46,7 @@ public class PostagemController {
 	}
 	
 	
-	//inserir dados na tabela
+	//inserir dados na tabela do banco de dados
 	@PostMapping
 	public ResponseEntity<Postagem> inserirPostagem(@RequestBody Postagem postagem){ //preparando para mandar uma requisição
 		return ResponseEntity.status(HttpStatus.CREATED)
@@ -55,7 +55,7 @@ public class PostagemController {
 		e a responsabilidade do repositorio salvar*/
 }
 	
-	//atualização dos dados
+	//atualização dos dados precisa identificar o id da alteração 
 	@PutMapping
 	public ResponseEntity<Postagem> put (@RequestBody Postagem postagem){ 
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));

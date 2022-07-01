@@ -6,11 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity //vai transformar o objeto em uma tabela no banco de dado
@@ -36,6 +39,11 @@ public class Postagem {
 	// LocalDateTime outra opção de inserir data automaticamente
 	private Date date = new java.util.Date(System.currentTimeMillis());
 	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Tema tema;
+	
+
 	public long getId() {
 		return id;
 	}
@@ -61,6 +69,11 @@ public class Postagem {
 		this.date = date;
 	};
 	
+	public Tema getTema() {
+		return tema;
+	}
+	public void setTema(Tema tema) {
+		this.tema = tema;};
 	
 
 }
