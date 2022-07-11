@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Postagem {
 	
 	@Id //chave primaria o mesmo que primary key, sempre acima da aplicação
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //vai ser um valor gerado pela estrategia de adicionar numero de identif.
 	private long id;
 	
 	@NotNull //obriga a preencher o campo
